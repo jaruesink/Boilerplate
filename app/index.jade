@@ -14,10 +14,8 @@ html(ng-app='App')
     link(rel='stylesheet', href='styles/main.css')
     
     // endbuild
-  body(ng-controller='MainCtrl as main')
+  body
     div(ui-view)
-    
-  
     
     // build:js(.) scripts/vendor.js
     // bower:js
@@ -37,5 +35,7 @@ html(ng-app='App')
     // endbuild
     // build:js({.tmp,app}) scripts/scripts.js
     script(src='scripts/app.js')
-    script(src='scripts/controllers/main.js')
+    script(src='scripts/controllers/viewWeatherCtrl.js')
+    script(src='scripts/services/getWeatherSrvc.js')
+    script(src='scripts/filters/temperatureFltr.js')
     // endbuild

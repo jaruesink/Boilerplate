@@ -1,8 +1,12 @@
 
 <main ng-controller="viewWeather as weather" class="container">
   <md-card>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h1>{{weather.city}} Weather</h1>
+      </div>
+    </md-toolbar>
     <md-card-content>
-      <h1 class="center-text">{{weather.city}}</h1>
       <ul> 
         <li ng-repeat="weatherItem in weather.list">Date/Time: {{weatherItem.dt_txt}} <br> {{weatherItem.main.temp | KtoF}}&deg; F</li>
       </ul>

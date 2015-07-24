@@ -1,16 +1,15 @@
-angular.module 'App', [
+App = angular.module 'App', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngSanitize',
     'ngTouch',
     'ui.router',
-    'ngMaterial'
+    'ngMaterial',
   ]
 
-angular.module 'App'
-  .config ($stateProvider, $urlRouterProvider) ->
-    $stateProvider
-    .state 'index',
-      url: ""
-      templateUrl: "views/main.html"
+App.config ($stateProvider, $urlRouterProvider) ->
+  $stateProvider
+  .state 'index',
+    url: ""
+    templateUrl: "views/main.html"
