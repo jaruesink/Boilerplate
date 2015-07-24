@@ -7,3 +7,10 @@ angular.module 'App', [
     'ui.router',
     'ngMaterial'
   ]
+
+angular.module 'App'
+  .config ($stateProvider, $urlRouterProvider) ->
+    $stateProvider
+    .state 'index',
+      url: ""
+      templateUrl: "views/main.html"

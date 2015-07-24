@@ -238,10 +238,11 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>',
-          dest: '.tmp',
-          src: '*.jade',
+          dest: 'app',
+          src: '{,*/}*.jade',
           ext: '.html'
-        }]
+        },
+        ]
       }
     },
 
