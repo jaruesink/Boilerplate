@@ -1,0 +1,46 @@
+doctype html
+html(ng-app='App')
+  head
+    meta(charset='utf-8')
+    title
+    meta(name='description', content='')
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+    // Place favicon.ico and apple-touch-icon.png in the root directory
+    // build:css(.) styles/vendor.css
+    // bower:css
+    // endbower
+    // endbuild
+    // build:css(.tmp) styles/main.css
+    link(rel='stylesheet', href='styles/main.css')
+    
+    // endbuild
+  body(ng-controller='MainCtrl as main')
+    .container
+      md-card
+        md-card-content(layout="row" layout-align="center")
+          md-button
+            {{main.variable}}
+  
+    
+    // build:js(.) scripts/vendor.js
+    // bower:js
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='bower_components/angular/angular.js')
+    script(src='bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js')
+    script(src='bower_components/angular-animate/angular-animate.js')
+    script(src='bower_components/angular-cookies/angular-cookies.js')
+    script(src='bower_components/angular-resource/angular-resource.js')
+    script(src='bower_components/angular-route/angular-route.js')
+    script(src='bower_components/angular-sanitize/angular-sanitize.js')
+    script(src='bower_components/angular-touch/angular-touch.js')
+    script(src='bower_components/angular-ui-router/release/angular-ui-router.js')
+    script(src='/bower_components/angular/angular.js')
+    script(src='/bower_components/angular-aria/angular-aria.js')
+    script(src='/bower_components/angular-animate/angular-animate.js')
+    script(src='/bower_components/angular-material/angular-material.js')
+    // endbower
+    // endbuild
+    // build:js({.tmp,app}) scripts/scripts.js
+    script(src='scripts/app.js')
+    script(src='scripts/controllers/main.js')
+    // endbuild
