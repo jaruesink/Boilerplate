@@ -7,9 +7,9 @@
       </div>
     </md-toolbar>
     <md-card-content>
-      <ul> 
-        <li ng-repeat="weatherItem in weather.list">Date/Time: {{weatherItem.dt_txt}} <br> {{weatherItem.main.temp | KtoF}}&deg; F</li>
-      </ul>
+      <md-list> 
+        <md-list-item ng-repeat="weatherItem in weather.list">{{weatherItem.dt_txt}} <br> {{weatherItem.main.temp | KtoF}}&deg; F</md-list-item>
+      </md-list>
     </md-card-content>
   </md-card>
 </main>
