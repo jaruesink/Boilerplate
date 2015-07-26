@@ -1,8 +1,11 @@
-main(ng-controller="viewWeather as weather").container
+main#weather(ng-controller="viewWeather as weather").container
   md-card
     md-toolbar
       div.md-toolbar-tools
         h1 {{weather.city}} Weather
-    md-card-content
-      md-list 
-        md-list-item(ng-repeat="weatherItem in weather.list") {{weatherItem.dt_txt}} <br> {{weatherItem.main.temp | KtoF}}&deg; F
+    md-card-content(layout-gt-md="row" layout-align="center")
+      section(ng-repeat="day in weather.list")
+        md-subheader
+          {{day.day}}
+        md-list
+          md-list-item(ng-repeat="weatherItem in day")#[img.md-avatar(ng-src="http://openweathermap.org/img/w/{{weatherItem.weather[0].icon}}.png")] {{weatherItem.hour}} <br> {{weatherItem.main.temp}}&deg; F

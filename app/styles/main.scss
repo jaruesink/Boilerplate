@@ -1,9 +1,12 @@
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-@import "variables.scss";
 @import "../bower_components/angular-material/angular-material.min.css";
+@import "variables.scss";
+
 
 body{
   background:$bgcolor-gray
 }
+
+@import "fixes.scss";

@@ -1,4 +1,4 @@
-App = angular.module 'App', [
+angular.module 'App', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -8,7 +8,7 @@ App = angular.module 'App', [
     'ngMaterial',
   ]
 
-App.config ($stateProvider, $urlRouterProvider) ->
+angular.module('App').config ($stateProvider, $urlRouterProvider) ->
   $stateProvider
   .state 'index',
     url: ""

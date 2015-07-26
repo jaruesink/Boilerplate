@@ -28,6 +28,7 @@ module.exports = (config) ->
       'bower_components/angular-ui-router/release/angular-ui-router.js'
       'bower_components/angular-aria/angular-aria.js'
       'bower_components/angular-material/angular-material.js'
+      'bower_components/moment/moment.js'
       'bower_components/angular-mocks/angular-mocks.js'
       # endbower
       # bower:coffee

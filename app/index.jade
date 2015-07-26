@@ -12,7 +12,6 @@ html(ng-app='App')
     // endbuild
     // build:css(.tmp) styles/main.css
     link(rel='stylesheet', href='styles/main.css')
-    
     // endbuild
   body
     div(ui-view)
@@ -31,11 +30,11 @@ html(ng-app='App')
     script(src='/bower_components/angular-aria/angular-aria.js')
     script(src='/bower_components/angular-animate/angular-animate.js')
     script(src='/bower_components/angular-material/angular-material.js')
+    script(src='/bower_components/moment/moment.js')
     // endbower
     // endbuild
     // build:js({.tmp,app}) scripts/scripts.js
     script(src='scripts/app.js')
     script(src='scripts/controllers/viewWeatherCtrl.js')
     script(src='scripts/services/getWeatherSrvc.js')
-    script(src='scripts/filters/temperatureFltr.js')
     // endbuild
