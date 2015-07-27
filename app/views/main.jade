@@ -2,10 +2,22 @@ main#weather(ng-controller="viewWeather as weather").container
   md-card
     md-toolbar
       div.md-toolbar-tools
+      
         h1 {{weather.city}} Weather
-    md-card-content(layout-gt-md="row" layout-align="center")
+        span(flex)
+        //- md-input-container
+        //-   label Search for your city
+        //-   input(type="text" ng-model="searchText")
+          
+    md-card-content(layout-gt-lg="row" layout-align="center")
+      md-progress-circular(md-mode="indeterminate" ng-show="weather.loading")
+      
       section(ng-repeat="day in weather.list")
-        md-subheader
-          {{day.day}}
+      
+        md-subheader {{day.day}}
         md-list
-          md-list-item(ng-repeat="weatherItem in day")#[img.md-avatar(ng-src="http://openweathermap.org/img/w/{{weatherItem.weather[0].icon}}.png")] {{weatherItem.hour}} <br> {{weatherItem.main.temp}}&deg; F
+          md-list-item(ng-repeat="weatherItem in day").weather-item
+            div(layout="row")
+              img.md-avatar(ng-src="http://openweathermap.org/img/w/{{weatherItem.weather[0].icon}}.png")
+              div.md-list-item-text 
+              p {{weatherItem.hour}} <br> {{weatherItem.main.temp}}&deg; F

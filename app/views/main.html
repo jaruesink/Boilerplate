@@ -3,14 +3,20 @@
   <md-card>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h1>{{weather.city}} Weather</h1>
+        <h1>{{weather.city}} Weather</h1><span flex="flex"></span>
       </div>
     </md-toolbar>
-    <md-card-content layout-gt-md="row" layout-align="center">
+    <md-card-content layout-gt-lg="row" layout-align="center">
+      <md-progress-circular md-mode="indeterminate" ng-show="weather.loading"></md-progress-circular>
       <section ng-repeat="day in weather.list">
         <md-subheader>{{day.day}}</md-subheader>
         <md-list>
-          <md-list-item ng-repeat="weatherItem in day"><img ng-src="http://openweathermap.org/img/w/{{weatherItem.weather[0].icon}}.png" class="md-avatar"/> {{weatherItem.hour}} <br> {{weatherItem.main.temp}}&deg; F</md-list-item>
+          <md-list-item ng-repeat="weatherItem in day" class="weather-item">
+            <div layout="row"><img ng-src="http://openweathermap.org/img/w/{{weatherItem.weather[0].icon}}.png" class="md-avatar"/>
+              <div class="md-list-item-text"> </div>
+              <p>{{weatherItem.hour}} <br> {{weatherItem.main.temp}}&deg; F</p>
+            </div>
+          </md-list-item>
         </md-list>
       </section>
     </md-card-content>

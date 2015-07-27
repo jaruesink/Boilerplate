@@ -3,6 +3,10 @@ angular.module('App').controller 'viewWeather', ['Weather'
 
     #set view model
     vm = this
+    vm.loading = true;
+
+    #autocomplete
+    vm.searchText = ''
 
     #get weather data from getWeatherSrvc
     Weather.getWeather().then (response) ->
@@ -42,14 +46,16 @@ angular.module('App').controller 'viewWeather', ['Weather'
             byDay.push [time]
             byDay[dayNumber].day = currentDate;
 
-        #format data to be readable
-        time.dt = moment(time.dt, 'X').format('MMMM Do YYYY, h:mm A')
-        Farenheight = Math.round(time.main.temp * 9 / 5 - 459.67)
-        time.main.temp = Farenheight
+          #format data to be readable
+          time.dt = moment(time.dt, 'X').format('MMMM Do YYYY, h:mm A')
+          Farenheight = Math.round(time.main.temp * 9 / 5 - 459.67)
+          time.main.temp = Farenheight
 
       #view model data
       vm.city = response.data.city.name
-      vm.list=byDay
+      vm.list = byDay
+      vm.loading = false;
+
       console.log byDay
 
     return

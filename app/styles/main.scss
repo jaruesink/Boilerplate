@@ -1,12 +1,16 @@
+
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 @import "../bower_components/angular-material/angular-material.min.css";
 @import "variables.scss";
-
+@import "fixes.scss";
 
 body{
   background:$bgcolor-gray
 }
 
-@import "fixes.scss";
+.weather-item{
+  width:150px;
+  display:inline-block;
+}
