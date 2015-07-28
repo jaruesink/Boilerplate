@@ -4,30 +4,32 @@
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h1>{{weather.city}} Weather ({{weather.country}})</h1><span flex="flex"></span>
-        <md-button ng-click="weather.search = !weather.search" class="md-icon-button">
+        <md-button ng-click="weather.toggleSearch()" class="md-icon-button">
           <md-icon>search</md-icon>
         </md-button>
       </div>
     </md-toolbar>
-    <md-card-content layout-gt-lg="row" layout-align="center">
+    <md-card-content>
       <section id="search" ng-show="weather.search">
         <md-input-container md-no-float="md-no-float">
           <md-icon>place</md-icon>
-          <input ng-model="weather.searchInput" placeholder="Search for your city" ng-enter="weather.searchCity(weather.searchInput)"/>
+          <input ng-model="weather.searchInput" placeholder="Search for your city" ng-enter="weather.searchCity(weather.searchInput)" ng-focus="weather.searchFocus"/>
         </md-input-container>
       </section>
       <md-progress-circular md-mode="indeterminate" ng-show="weather.loading"></md-progress-circular>
-      <section ng-repeat="day in weather.list">
-        <md-subheader>{{day.day}}</md-subheader>
-        <md-list>
-          <md-list-item ng-repeat="weatherItem in day" class="weather-item">
-            <div layout="row"><img ng-src="http://openweathermap.org/img/w/{{weatherItem.weather[0].icon}}.png" class="md-avatar"/>
-              <div class="md-list-item-text"> </div>
-              <p>{{weatherItem.hour}} <br> {{weatherItem.main.temp}}&deg; F</p>
-            </div>
-          </md-list-item>
-        </md-list>
-      </section>
+      <div layout-gt-lg="row" layout-align="center">
+        <section ng-repeat="day in weather.list">
+          <md-subheader>{{day.day}}</md-subheader>
+          <md-list>
+            <md-list-item ng-repeat="weatherItem in day" class="weather-item">
+              <div layout="row"><img ng-src="http://openweathermap.org/img/w/{{weatherItem.weather[0].icon}}.png" class="md-avatar"/>
+                <div class="md-list-item-text"> </div>
+                <p>{{weatherItem.hour}} <br> {{weatherItem.main.temp}}&deg; F</p>
+              </div>
+            </md-list-item>
+          </md-list>
+        </section>
+      </div>
     </md-card-content>
   </md-card>
 </main>

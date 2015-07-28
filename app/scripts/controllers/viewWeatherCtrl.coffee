@@ -4,6 +4,7 @@ angular.module('App').controller 'viewWeather', ['Weather'
     #set view model
     vm = this
     vm.loading = true;
+    vm.searchFocus = false;
 
     #function to manipulate weather data recieved
     setWeatherData = (response) ->
@@ -59,6 +60,13 @@ angular.module('App').controller 'viewWeather', ['Weather'
       return
 
     #search for city
+    vm.toggleSearch = ->
+      vm.search = !vm.search
+      if(vm.search)
+        vm.searchFocus = true
+      else vm.searchFocus = false
+      return
+
     vm.search = false;
     vm.searchInput = ''
     vm.searchCity = (input) ->
@@ -68,10 +76,6 @@ angular.module('App').controller 'viewWeather', ['Weather'
         return
       vm.searchInput = ''
       vm.search = false;
-
-
-
-
 
     return
 ]
