@@ -1,5 +1,6 @@
 main#weather(ng-controller="viewWeather as weather").container
   md-card
+    div#imageHeader(ng-style="weather.setBackground")
     md-toolbar
       div.md-toolbar-tools
       
@@ -7,7 +8,7 @@ main#weather(ng-controller="viewWeather as weather").container
         span(flex)
         md-button(ng-click="weather.toggleSearch()").md-icon-button
           md-icon search
-          
+    
     md-card-content
       section#search(ng-show="weather.search")
         md-input-container(md-no-float)

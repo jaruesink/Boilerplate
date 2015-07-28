@@ -1,6 +1,7 @@
 
 <main id="weather" ng-controller="viewWeather as weather" class="container">
   <md-card>
+    <div id="imageHeader" ng-style="weather.setBackground"></div>
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h1>{{weather.city}} Weather ({{weather.country}})</h1><span flex="flex"></span>
