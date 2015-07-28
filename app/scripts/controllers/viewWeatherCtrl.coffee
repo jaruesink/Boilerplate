@@ -5,12 +5,8 @@ angular.module('App').controller 'viewWeather', ['Weather'
     vm = this
     vm.loading = true;
 
-    #autocomplete
-    vm.searchText = ''
-
-    #get weather data from getWeatherSrvc
-    Weather.getWeather().then (response) ->
-
+    #function to manipulate weather data recieved
+    setWeatherData = (response) ->
       #variable declarations
       list = response.data.list
       byDay = []
@@ -50,7 +46,32 @@ angular.module('App').controller 'viewWeather', ['Weather'
 
       #view model data
       vm.city = response.data.city.name
+      vm.country = response.data.city.country
       vm.list = byDay
       vm.loading = false;
+
+    #initialize with Austin
+    searchText = 'Austin'
+
+    #get weather data from getWeatherSrvc
+    Weather.getWeather(searchText).then (response) ->
+      setWeatherData response
+      return
+
+    #search for city
+    vm.search = false;
+    vm.searchInput = ''
+    vm.searchCity = (input) ->
+      searchText = input
+      Weather.getWeather(searchText).then (response) ->
+        setWeatherData response
+        return
+      vm.searchInput = ''
+      vm.search = false;
+
+
+
+
+
     return
 ]

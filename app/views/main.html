@@ -3,10 +3,19 @@
   <md-card>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h1>{{weather.city}} Weather</h1><span flex="flex"></span>
+        <h1>{{weather.city}} Weather ({{weather.country}})</h1><span flex="flex"></span>
+        <md-button ng-click="weather.search = !weather.search" class="md-icon-button">
+          <md-icon>search</md-icon>
+        </md-button>
       </div>
     </md-toolbar>
     <md-card-content layout-gt-lg="row" layout-align="center">
+      <section id="search" ng-show="weather.search">
+        <md-input-container md-no-float="md-no-float">
+          <md-icon>place</md-icon>
+          <input ng-model="weather.searchInput" placeholder="Search for your city" ng-enter="weather.searchCity(weather.searchInput)"/>
+        </md-input-container>
+      </section>
       <md-progress-circular md-mode="indeterminate" ng-show="weather.loading"></md-progress-circular>
       <section ng-repeat="day in weather.list">
         <md-subheader>{{day.day}}</md-subheader>

@@ -3,13 +3,17 @@ main#weather(ng-controller="viewWeather as weather").container
     md-toolbar
       div.md-toolbar-tools
       
-        h1 {{weather.city}} Weather
+        h1 {{weather.city}} Weather ({{weather.country}})
         span(flex)
-        //- md-input-container
-        //-   label Search for your city
-        //-   input(type="text" ng-model="searchText")
+        md-button(ng-click="weather.search = !weather.search").md-icon-button
+          md-icon search
           
     md-card-content(layout-gt-lg="row" layout-align="center")
+      section#search(ng-show="weather.search")
+        md-input-container(md-no-float)
+          md-icon place
+          input(ng-model="weather.searchInput" placeholder="Search for your city" ng-enter="weather.searchCity(weather.searchInput)")
+    
       md-progress-circular(md-mode="indeterminate" ng-show="weather.loading")
       
       section(ng-repeat="day in weather.list")
