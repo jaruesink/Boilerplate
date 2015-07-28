@@ -1,5 +1,5 @@
 {
-  "name": "netegreek20",
+  "name": "WeatherApp",
   "private": true,
   "devDependencies": {
     "coffee-script": "*",
@@ -41,5 +41,24 @@
   "scripts": {
     "test": "grunt test",
     "start": "node server.js"
-  }
+  },
+  "dependencies": {
+    "express": "^4.13.1"
+  },
+  "description": "This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular) version 0.12.1.",
+  "version": "0.0.1",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaruesink/Boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaruesink/Boilerplate/issues"
+  },
+  "homepage": "https://github.com/jaruesink/Boilerplate"
 }

@@ -1,19 +1,11 @@
-//Lets require/import the HTTP module
-var http = require('http');
+var express = require('express');
+var app = express();
 
-//Lets define a port we want to listen to
-const PORT=9000;
+app.use(express.static('dist'));
 
-//We need a function which handles requests and send response
-function handleRequest(request, response){
-  response.end('It Works!! Path Hit: ' + request.url);
-}
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
 
-//Create a server
-var server = http.createServer(handleRequest);
-
-//Lets start our server
-server.listen(PORT, function(){
-  //Callback triggered when server is successfully listening. Hurray!
-  console.log("Server listening on: http://localhost:%s", PORT);
+  console.log('Example app listening at http://%s:%s', host, port);
 });
