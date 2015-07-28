@@ -20,31 +20,28 @@ angular.module('App').controller 'viewWeather', ['Weather'
       for time, index in list
         do (time) ->
 
-          #get current day and hour
+          #set a variable for the last index when it exists
+          if index > 0
+            lastIndex = index - 1;
+
+          #get formatted dates
           currentDay = moment(list[index].dt, 'X').format('Do');
           currentDate = moment(list[index].dt, 'X').format('MMMM Do');
           currentHour = moment(list[index].dt, 'X').format('h:mm A');
           time.hour = currentHour;
-
-          #get index of the last iteration, but when it's not -1
-          if index > 0
-            lastIndex = index - 1;
-          #on the first loop, create an array with the first time
-          if index == 0
-            byDay.push [time]
-            byDay[dayNumber].day = currentDate;
-          #assign current loop day and last loop day for checking
           if lastIndex
-            currentDay = moment(list[index].dt, 'X').format('Do');
             lastDay = moment(list[lastIndex].dt, 'MMMM Do YYYY, h:mm A').format('Do')
+
+          #create a new arraw if current day doesn't equal the last day
+          if currentDay != lastDay
+            byDay.push [time]
+            if index > 0
+              dayNumber++
+            byDay[dayNumber].day = currentDate;
+
           #push time to current day's array if this day is equal to the last day
           if lastIndex && currentDay == lastDay
             byDay[dayNumber].push time
-          #create a new arraw if current day doesn't equal the last day
-          if lastIndex && currentDay != lastDay
-            dayNumber++
-            byDay.push [time]
-            byDay[dayNumber].day = currentDate;
 
           #format data to be readable
           time.dt = moment(time.dt, 'X').format('MMMM Do YYYY, h:mm A')
@@ -55,8 +52,5 @@ angular.module('App').controller 'viewWeather', ['Weather'
       vm.city = response.data.city.name
       vm.list = byDay
       vm.loading = false;
-
-      console.log byDay
-
     return
 ]
