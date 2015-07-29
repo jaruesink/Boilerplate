@@ -1,4 +1,4 @@
-angular.module('App').controller 'viewWeather', ['Weather', 'Map'
+angular.module('App').controller 'WeatherCtrl', ['Weather', 'Map'
   (Weather, Map) ->
 
     #set view model
