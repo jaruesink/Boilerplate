@@ -1,10 +1,11 @@
-angular.module('App').controller 'viewWeather', ['Weather', 'Image'
-  (Weather, Image) ->
+angular.module('App').controller 'viewWeather', ['Weather', 'Map'
+  (Weather, Map) ->
 
     #set view model
     vm = this
     vm.loading = true;
     vm.searchFocus = false;
+    map_url = ''
 
     #function to manipulate weather data recieved
     setWeatherData = (response) ->
@@ -32,7 +33,6 @@ angular.module('App').controller 'viewWeather', ['Weather', 'Image'
           #create a new arraw if current day doesn't equal the last day
           if currentDay != lastDay
             byDay.push [time]
-            console.log 'currentDay = ', currentDay, ' | lastDay = ', lastDay
             if index > 0
               dayNumber++
             byDay[dayNumber].day = currentDate;
@@ -51,16 +51,8 @@ angular.module('App').controller 'viewWeather', ['Weather', 'Image'
       vm.country = response.data.city.country
       vm.list = byDay
       vm.loading = false;
-      console.log byDay
-      console.log response.data.list
-    setImageData = (response) ->
-      image_farm = response.data.photos.photo[0].farm
-      image_server = response.data.photos.photo[0].server
-      image_id = response.data.photos.photo[0].id
-      image_secret = response.data.photos.photo[0].secret
-      image_url = 'https://farm'+image_farm+'.staticflickr.com/'+image_server+'/'+image_id+'_'+image_secret+'.jpg'
-      vm.setBackground = { 'background-image' : 'url("'+image_url+'")' }
-      console.log vm.setBackground
+      map_url = Map.image(vm.city)
+      vm.setBackground = {'background-image':'url("'+map_url+'")'}
 
     #initialize with Austin
     searchText = 'Austin'
@@ -68,10 +60,6 @@ angular.module('App').controller 'viewWeather', ['Weather', 'Image'
     #get weather data from getWeatherSrvc
     Weather.getWeather(searchText).then (response) ->
       setWeatherData response
-      #get image data from getImageSrvc
-      Image.getImage(vm.city, vm.country).then (response) ->
-        setImageData response
-        return
       return
 
     #search for city
@@ -89,9 +77,6 @@ angular.module('App').controller 'viewWeather', ['Weather', 'Image'
       searchText = input
       Weather.getWeather(searchText).then (response) ->
         setWeatherData response
-        Image.getImage(vm.city, vm.country).then (response) ->
-          setImageData response
-          return
         return
       vm.searchInput = ''
       vm.toggleSearch()
