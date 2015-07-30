@@ -1,16 +1,17 @@
 
-<main id="weather" ng-controller="viewWeather as weather" class="container">
+<main id="weather" class="container">
   <md-card>
     <div id="imageHeader" ng-style="weather.setBackground"></div>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h1>{{weather.city}} Weather ({{weather.country}})</h1><span flex="flex"></span>
-        <md-button ng-click="weather.toggleSearch()" class="md-icon-button">
+        <h1>{{weather.country}}</h1><span flex="flex"></span>
+        <md-button ng-click="weather.toggleSearch()" ng-class="{'md-raised md-accent' : weather.search}" class="md-icon-button">
           <md-icon>search</md-icon>
-        </md-button>
+        </md-button><a ui-sref="home.settings" class="md-button md-icon-button">
+          <md-icon>settings</md-icon></a>
       </div>
     </md-toolbar>
-    <md-card-content>
+    <md-card-content>     
       <section id="search" ng-show="weather.search">
         <md-input-container md-no-float="md-no-float">
           <md-icon>place</md-icon>
@@ -18,6 +19,7 @@
         </md-input-container>
       </section>
       <md-progress-circular md-mode="indeterminate" ng-show="weather.loading"></md-progress-circular>
+      <div ui-view="ui-view"></div>
       <div layout-gt-lg="row" layout-align="center">
         <section ng-repeat="day in weather.list">
           <md-subheader>{{day.day}}</md-subheader>
