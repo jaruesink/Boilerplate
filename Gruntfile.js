@@ -391,7 +391,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'neteGreek20App',
+          module: 'App',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
@@ -434,7 +434,8 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'views/**'
           ]
         }, {
           expand: true,
@@ -445,6 +446,11 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+          dest: '<%= yeoman.dist %>'
+        }, {
+          expand: true,
+          cwd: '.',
+          src: '.tmp/scripts',
           dest: '<%= yeoman.dist %>'
         }]
       },
@@ -517,8 +523,8 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    'useminPrepare',
     'jade',
+    'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
     'ngtemplates',
