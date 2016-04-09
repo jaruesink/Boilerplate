@@ -1,14 +1,14 @@
 {
-  "name": "coop",
+  "name": "Boilerplate",
   "description": "Created by the ModernWebDev Yeoman Generator",
   "author": {
     "name": "Jake Ruesink",
     "email": "jaruesink@gmail.com",
-    "url": "http://coopchatapp.com"
+    "url": "http://google.com"
   },
   "contributors": [],
-  "homepage": "https://coopchatapp.com",
-  "bugs": "https://coopchatapp.com",
+  "homepage": "https://google.com",
+  "bugs": "https://google.com",
   "keywords": [
     "web"
   ],

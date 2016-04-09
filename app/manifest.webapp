@@ -1,14 +1,14 @@
 {
   "version": "0.0.1",
-  "name": "coop",
-  "launch_path": "/index.html",
+  "name": "Boilerplate",
+  "launch_path": "/home",
   "description": "Created by the ModernWebDev Yeoman Generator",
   "icons": {
     "128": "/images/touch/icon-128x128.png"
   },
   "developer": {
     "name": "Jake Ruesink",
-    "url": "http://coopchatapp.com"
+    "url": "http://google.com"
   },
   "installs_allowed_from": [
     "*"
@@ -18,7 +18,7 @@
   },
   "locales": {
     "en": {
-      "name": "coop",
+      "name": "Boilerplate",
       "description": "Created by the ModernWebDev Yeoman Generator"
     }
   }
