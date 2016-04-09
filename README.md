@@ -1,10 +1,13 @@
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+#About
+This project was created using the ModernWebDev Yeoman Generator by dSebastien.
 
-## Build & development
+#How to build
+`npm install gulp --global`
+`--no-optional ulimit -n 2048`
+`npm run setup`
+`npm run start`
 
-Run `grunt` for building and `grunt serve` for preview.
+You will get duplicate identifier typescript errors, but you can ignore those.
+$5 if you can fix them. :-P
 
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+For more details about the build, refer to the ModernWebDevBuild project documentation.

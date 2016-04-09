@@ -1,23 +1,41 @@
+//
+// Main stylesheet.
+// Should import all the other stylesheets
+//
 
-// bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-// endbower
-@import "../bower_components/angular-material/angular-material.min.css";
-@import "variables.scss";
-@import "fixes.scss";
+// Bootstrap (v4.0.0-alpha.2)
+@import "bootstrap-scss/bootstrap";
 
-body{
-  background:$bgcolor-gray
-}
+// Variables, functions, mixins and utils
+@import "base/_variables";
+@import "base/_functions";
+@import "base/_mixins";
+@import "base/_utils";
+@import "base/_animations";
 
-.weather-item{
-  width:150px;
-  display:inline-block;
-}
+// Base/generic style rules
+@import "base/_reset";
+@import "base/_responsive";
+@import "base/_fonts";
+@import "base/_typography";
+@import "base/_loading";
+@import "base/_forms";
+@import "base/_base";
 
-#imageHeader{
-  height:100px;
-  background-position: center;
-  background-size:cover;
-  background-color: black;
-}
+// Layout
+@import "layout/_layout";
+@import "layout/_theme";
+@import "layout/_print";
+
+// Modules
+// @import "../modules/_example_scss_file";
+
+// Components
+
+// Pages
+
+// Fixes
+@import "base/_fixes";
+
+// Tests
+@import "tests/tests";

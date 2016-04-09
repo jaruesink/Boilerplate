@@ -1,0 +1,54 @@
+{
+	"version": "1.7.3",
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"declaration": false,
+		"noImplicitAny": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"removeComments": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"noEmitOnError": false,
+		"preserveConstEnums": true,
+		"inlineSources": false,
+		"sourceMap": true,
+		"outDir": "./.tmp",
+		"rootDir": "./app",
+		"moduleResolution": "node",
+		"listFiles": false
+	},
+	"formatCodeOptions": {
+		"indentSize": 2,
+		"tabSize": 4,
+		"newLineCharacter": "\r\n",
+		"convertTabsToSpaces": false,
+		"insertSpaceAfterCommaDelimiter": true,
+		"insertSpaceAfterSemicolonInForStatements": true,
+		"insertSpaceBeforeAndAfterBinaryOperators": true,
+		"insertSpaceAfterKeywordsInControlFlowStatements": true,
+		"insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+		"insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+		"placeOpenBraceOnNewLineForFunctions": false,
+		"placeOpenBraceOnNewLineForControlBlocks": false
+	},
+	"exclude": [
+		"node_modules",
+		"jspm_packages",
+		"typings/browser",
+		"typings/browser.d.ts"
+	],
+	"files": [
+		"app/core/app.ts",
+		"app/core/boot.ts",
+		"app/test/sanity_test.spec.ts",
+		"typings/custom.d.ts",
+		"typings/main.d.ts",
+		"typings/main/ambient/es6-shim/index.d.ts",
+		"typings/main/ambient/jasmine/index.d.ts",
+		"typings/main/ambient/zone.js/index.d.ts"
+	],
+	"atom": {
+		"rewriteTsconfig": true
+	}
+}
