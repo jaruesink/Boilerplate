@@ -41,13 +41,12 @@
 	"files": [
 		"app/core/app.ts",
 		"app/core/boot.ts",
-        "app/core/services/members.service.ts",
+		"app/core/services/members.service.ts",
+		"app/core/services/services.ts",
+		"app/modules/members-list.ts",
+		"app/pages/home/home.ts",
 		"app/test/sanity_test.spec.ts",
-		"typings/custom.d.ts",
-		"typings/main.d.ts",
-		"typings/main/ambient/es6-shim/index.d.ts",
-		"typings/main/ambient/jasmine/index.d.ts",
-		"typings/main/ambient/zone.js/index.d.ts"
+		"app/typings/custom.d.ts"
 	],
 	"atom": {
 		"rewriteTsconfig": true

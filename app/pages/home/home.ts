@@ -16,7 +16,7 @@ export class Home {
 	eliminated:string;
 	winner:string;
 	interval:number = 1000;
-	progress:number = 0;
+	// progress:number = 0;
     constructor(private _members:Members) {
         this.title = 'The Final Countdown';
         this.members = this._members.members;
@@ -39,8 +39,8 @@ export class Home {
 			this.eliminated = members[random];
 			this.members.splice(random, 1);
 			var timer_interval = this.interval/10;
-			console.log('timer_interval', timer_interval);
-			this.progress = 0;
+			// console.log('timer_interval', timer_interval);
+			// this.progress = 0;
 			// setInterval( () => {
 			// 	if (this.progress < 101) {
 			// 		this.progress++;
