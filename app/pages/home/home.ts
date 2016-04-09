@@ -25,7 +25,7 @@ export class Home {
 		this.removeRandom(this.members);
 	}
     removeRandom(members:Array<string>) {
-        var list_length = members.length - 1;
+        var list_length = members.length;
 		var random = this.getRandom(0, list_length);
 		if(list_length < 20 && list_length > 10) {
 			this.interval = 2000;
@@ -33,7 +33,7 @@ export class Home {
 		if(list_length < 10) {
 			this.interval = 5000;
 		}
-		if (list_length < 2 && list_length > 0) {
+		if (list_length === 2) {
 			this.eliminated = '';
 			this.winner = members[random];
 			this.members = [];
@@ -54,6 +54,6 @@ export class Home {
 		}
     }
     getRandom(min:number, max:number) {
-         return Math.floor(Math.random() * (max - min + 1)) + min;
+         return Math.floor(Math.random() * (max - min)) + min;
     }
 }
