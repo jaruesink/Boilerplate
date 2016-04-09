@@ -22,7 +22,7 @@ console.log("Bootstrapping the App");
 
 // in [] is the list of injector bindings. Those bindings are used when an injector is created. Passing these here make the bindings available application-wide
 bootstrap(App, [
-	// appServicesInjectables, //<- uncomment this if you add services to services.ts
+	appServicesInjectables, //<- uncomment this if you add services to services.ts
 	ROUTER_PROVIDERS,
 	HTTP_PROVIDERS,
     HTTP_BINDINGS,

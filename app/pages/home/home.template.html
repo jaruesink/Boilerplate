@@ -1,8 +1,11 @@
 <div class="container">
-    <div class="card">
-        <div class="card-block">
-            <h4 class="card-title">{{title}}</h4>
-            <p>Using Angular 2 Beta and Bootstrap 4 Alpha, have fun. :-P</p>
-        </div>
-    </div>
+	<h1>{{title}}</h1>
+	<div class="alert alert-danger" role="alert" *ngIf="eliminated && !winner">
+		Sorry, <strong>{{eliminated}}</strong> you have been eliminated!
+	</div>
+	<div class="alert alert-success" role="alert" *ngIf="winner && !eliminated">
+		Yay, <strong>{{winner}}</strong> you are the winner!
+	</div>
+	<!--<progress *ngIf="eliminated" class="progress progress-info progress-striped progress-animated" [value]="progress" max="100"></progress>-->
+	<members-list [members_left]="members"></members-list>
 </div>
