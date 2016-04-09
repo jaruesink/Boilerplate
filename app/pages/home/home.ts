@@ -20,8 +20,10 @@ export class Home {
     constructor(private _members:Members) {
         this.title = 'The Final Countdown';
         this.members = this._members.members;
-		this.removeRandom(this.members);
     }
+	beginCountdown() {
+		this.removeRandom(this.members);
+	}
     removeRandom(members:Array<string>) {
         var list_length = members.length - 1;
 		var random = this.getRandom(0, list_length);

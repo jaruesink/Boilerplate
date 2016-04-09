@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>{{title}}</h1>
+	<h1>{{title}} <button *ngIf="!eliminated && !winner" class="btn btn-success" (click)="beginCountdown()">BEGIN</button></h1>
 	<div class="alert alert-danger" role="alert" *ngIf="eliminated && !winner">
 		Sorry, <strong>{{eliminated}}</strong> you have been eliminated!
 	</div>
